@@ -2,12 +2,14 @@ package com.hansen.mvpframe.di.component;
 
 import android.app.Activity;
 
+import com.hansen.mvpframe.base.contract.zhihu.NewInfoContract;
 import com.hansen.mvpframe.di.scope.FragmentScope;
 import com.hansen.mvpframe.di.module.FragmentModule;
 import com.hansen.mvpframe.ui.gank.fragment.TechFragment;
 
 import com.hansen.mvpframe.ui.main.fragment.SettingFragment;
 import com.hansen.mvpframe.ui.main.fragment.ZhiHuFragment;
+import com.hansen.mvpframe.ui.zhihu.fragment.NewInfoFragment;
 
 
 import dagger.Component;
@@ -23,6 +25,7 @@ public interface FragmentComponent {
     void inject(TechFragment techFragment);
     void inject(SettingFragment settingFragment);
     void inject(ZhiHuFragment zhiHuFragment);
+    void inject(NewInfoFragment newInfoFragment);
 
 
 }

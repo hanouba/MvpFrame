@@ -22,6 +22,8 @@ public class ZhiHuFragment extends SimpleFragment{
     @BindView(R.id.vp_zhihu_main)
     ViewPager zhihuView;
 
+
+
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_zhihu_main;
