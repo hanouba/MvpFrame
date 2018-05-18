@@ -9,6 +9,7 @@ import com.hansen.mvpframe.ui.gank.fragment.TechFragment;
 
 import com.hansen.mvpframe.ui.main.fragment.SettingFragment;
 import com.hansen.mvpframe.ui.main.fragment.ZhiHuFragment;
+import com.hansen.mvpframe.ui.zhihu.fragment.DataInfoFragment;
 import com.hansen.mvpframe.ui.zhihu.fragment.NewInfoFragment;
 
 
@@ -26,6 +27,9 @@ public interface FragmentComponent {
     void inject(SettingFragment settingFragment);
     void inject(ZhiHuFragment zhiHuFragment);
     void inject(NewInfoFragment newInfoFragment);
+    void inject(DataInfoFragment dataInfoFragment);
+
+
 
 
 }

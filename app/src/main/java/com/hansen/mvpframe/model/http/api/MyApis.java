@@ -25,5 +25,8 @@ public interface MyApis {
     @GET("prefetch-launch-images/{res}")
     Flowable<WelcomeBean> getWelcomeInfo(@Path("res") String res);
 
+    //https://news-at.zhihu.com/api/4/news/latest
+    //最新消息
+
 
 }
