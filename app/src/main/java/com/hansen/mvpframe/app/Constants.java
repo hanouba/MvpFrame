@@ -16,6 +16,7 @@ public class Constants {
 
     public static final int TYPE_ZHIHU = 101;
     public static final int TYPE_GANK = 102;
+    public static final int TYPE_SET = 103;
     //================= PATH ====================
 
     public static final String PATH_DATA = App.getInstance().getCacheDir().getAbsolutePath() + File.separator + "data";

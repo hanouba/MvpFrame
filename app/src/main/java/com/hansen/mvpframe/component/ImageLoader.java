@@ -15,9 +15,9 @@ public class ImageLoader {
 
     public static void load(Context context, String url, ImageView iv) {    //使用Glide加载圆形ImageView(如头像)时，不要使用占位图
         //根据是否是无图模式来判断  是否需要用到glide 来加载图片
-//        if (!App.getAppComponent().preferencesHelper().getNoImageState()) {
+        if (!App.getAppComponent().preferencesHelper().getNoImageState()) {
             Glide.with(context).load(url).crossFade().diskCacheStrategy(DiskCacheStrategy.SOURCE).into(iv);
-//        }
+        }
     }
 
     public static void load(Activity activity, String url, ImageView iv) {    //使用Glide加载圆形ImageView(如头像)时，不要使用占位图

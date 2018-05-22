@@ -15,6 +15,8 @@ import com.hansen.mvpframe.base.BaseFragment;
 import com.hansen.mvpframe.component.ACache;
 import com.hansen.mvpframe.base.presenter.main.SettingPresenter;
 import com.hansen.mvpframe.base.contract.main.SettingContract;
+import com.hansen.mvpframe.component.RxBus;
+import com.hansen.mvpframe.model.event.NightModeEvent;
 import com.hansen.mvpframe.util.ShareUtil;
 
 import java.io.File;
@@ -63,9 +65,9 @@ public class SettingFragment extends BaseFragment<SettingPresenter> implements C
     protected void initEventAndData() {
         cacheFile = new File(Constants.PATH_CACHE);
         tvSettingClear.setText(ACache.getCacheSize(cacheFile));
-//        cbSettingCache.setChecked(mPresenter.getAutoCacheState());
-//        cbSettingImage.setChecked(mPresenter.getNoImageState());
-//        cbSettingNight.setChecked(mPresenter.getNightModeState());
+        cbSettingCache.setChecked(mPresenter.getAutoCacheState());
+        cbSettingImage.setChecked(mPresenter.getNoImageState());
+        cbSettingNight.setChecked(mPresenter.getNightModeState());
         cbSettingCache.setOnCheckedChangeListener(this);
         cbSettingImage.setOnCheckedChangeListener(this);
         cbSettingNight.setOnCheckedChangeListener(this);
@@ -106,17 +108,17 @@ public class SettingFragment extends BaseFragment<SettingPresenter> implements C
         switch (compoundButton.getId()) {
             case R.id.cb_setting_night:
                 if (isNull) {   //防止夜间模式MainActivity执行reCreate后重复调用
-//                    mPresenter.setNightModeState(b);
-//                    NightModeEvent event = new NightModeEvent();
-//                    event.setNightMode(b);
-//                    RxBus.getDefault().post(event);
+                    mPresenter.setNightModeState(b);
+                    NightModeEvent event = new NightModeEvent();
+                    event.setNightMode(b);
+                    RxBus.getDefault().post(event);
                 }
                 break;
             case R.id.cb_setting_image:
-//                mPresenter.setNoImageState(b);
+                mPresenter.setNoImageState(b);
                 break;
             case R.id.cb_setting_cache:
-//                mPresenter.setAutoCacheState(b);
+                mPresenter.setAutoCacheState(b);
                 break;
         }
     }

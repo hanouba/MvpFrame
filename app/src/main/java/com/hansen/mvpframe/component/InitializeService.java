@@ -49,7 +49,7 @@ public class InitializeService extends IntentService {
         Logger.init(getPackageName()).hideThreadInfo();
 
         //初始化错误收集
-//        CrashHandler.init(new CrashHandler(getApplicationContext()));
+        CrashHandler.init(new CrashHandler(getApplicationContext()));
         initBugly();
 
         //初始化内存泄漏检测

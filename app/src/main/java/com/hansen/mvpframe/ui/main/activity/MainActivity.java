@@ -74,7 +74,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         super.onCreate(savedInstanceState);
         if (savedInstanceState == null) {
             //初次打开 默认夜间模式为false
-
+            mPresenter.setNightModeState(false);
         } else {
             showFragment = mPresenter.getCurrentItem();
             hideFragment = Constants.TYPE_ZHIHU;
@@ -96,7 +96,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         mDrawerToggle.syncState();
         mDrawerLayout.addDrawerListener(mDrawerToggle);
         mLastMenuItem = mNavigationView.getMenu().findItem(R.id.drawer_zhihu);
-        loadMultipleRootFragment(R.id.fl_main_content,0,mZhiHuFragment,mGankFragment);
+        loadMultipleRootFragment(R.id.fl_main_content,0,mZhiHuFragment,mGankFragment,mSettingFragment);
         mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
@@ -107,6 +107,10 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                         break;
                     case R.id.drawer_gank:
                         showFragment = Constants.TYPE_GANK;
+                        mSearchMenuItem.setVisible(true);
+                        break;
+                    case R.id.drawer_setting:
+                        showFragment = Constants.TYPE_SET;
                         mSearchMenuItem.setVisible(true);
                         break;
 
@@ -192,6 +196,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                 return mZhiHuFragment;
             case Constants.TYPE_GANK:
                 return mGankFragment;
+            case Constants.TYPE_SET:
+                return mSettingFragment;
 
         }
         return mZhiHuFragment;
@@ -203,6 +209,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                 return R.id.drawer_zhihu;
             case Constants.TYPE_GANK:
                 return R.id.drawer_gank;
+                case Constants.TYPE_SET:
+                    return R.id.drawer_setting;
         }
         return R.id.drawer_zhihu;
     }

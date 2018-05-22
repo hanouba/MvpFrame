@@ -43,4 +43,35 @@ public class ImplPreferencesHelper implements PreferencesHelper {
     public void setCurrentItem(int item) {
         mSPrefs.edit().putInt(Constants.SP_CURRENT_ITEM,item).apply();
     }
+
+    //是否自动缓存
+    @Override
+    public boolean getAutoCacheState() {
+        return mSPrefs.getBoolean(Constants.SP_AUTO_CACHE,DEFAULT_AUTO_SAVE);
+    }
+
+    @Override
+    public void setAutoCacheState(boolean state) {
+        mSPrefs.edit().putBoolean(Constants.SP_AUTO_CACHE,state).apply();
+    }
+
+    @Override
+    public boolean getNoImageState() {
+        return mSPrefs.getBoolean(Constants.SP_NO_IMAGE,DEFAULT_NO_IMAGE);
+    }
+
+    @Override
+    public void setNoImageState(boolean state) {
+        mSPrefs.edit().putBoolean(Constants.SP_NO_IMAGE,state).apply();
+    }
+
+    @Override
+    public boolean getNightModeState() {
+        return mSPrefs.getBoolean(Constants.SP_NIGHT_MODE,DEFAULT_NIGHT_MODE);
+    }
+
+    @Override
+    public void setNightModeState(boolean state) {
+        mSPrefs.edit().putBoolean(Constants.SP_NIGHT_MODE,state).apply();
+    }
 }

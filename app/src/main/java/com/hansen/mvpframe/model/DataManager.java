@@ -1,5 +1,6 @@
 package com.hansen.mvpframe.model;
 
+import com.hansen.mvpframe.model.bean.NewInfoBean;
 import com.hansen.mvpframe.model.bean.WelcomeBean;
 import com.hansen.mvpframe.model.db.DBHelper;
 import com.hansen.mvpframe.model.http.HttpHelper;
@@ -37,6 +38,11 @@ public class DataManager implements HttpHelper, DBHelper, PreferencesHelper {
     }
 
     @Override
+    public Flowable<NewInfoBean> fetchGetNewInfo() {
+        return mHttpHelper.fetchGetNewInfo();
+    }
+
+    @Override
     public int getCurrentItem() {
         return mPreferencesHelper.getCurrentItem();
     }
@@ -44,5 +50,35 @@ public class DataManager implements HttpHelper, DBHelper, PreferencesHelper {
     @Override
     public void setCurrentItem(int item) {
         mPreferencesHelper.setCurrentItem(item);
+    }
+
+    @Override
+    public boolean getAutoCacheState() {
+        return mPreferencesHelper.getAutoCacheState();
+    }
+
+    @Override
+    public void setAutoCacheState(boolean state) {
+        mPreferencesHelper.setAutoCacheState(state);
+    }
+
+    @Override
+    public boolean getNoImageState() {
+        return mPreferencesHelper.getNoImageState();
+    }
+
+    @Override
+    public void setNoImageState(boolean state) {
+        mPreferencesHelper.setNoImageState(state);
+    }
+
+    @Override
+    public boolean getNightModeState() {
+        return mPreferencesHelper.getNightModeState();
+    }
+
+    @Override
+    public void setNightModeState(boolean state) {
+        mPreferencesHelper.setNightModeState(state);
     }
 }

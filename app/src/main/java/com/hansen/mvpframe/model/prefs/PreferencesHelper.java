@@ -13,4 +13,17 @@ public interface PreferencesHelper {
     int getCurrentItem();
     //设置当前界面 的索引
     void setCurrentItem(int item);
+
+    //是否自动缓存
+    boolean getAutoCacheState();
+
+    void setAutoCacheState(boolean state);
+
+    //是否无图
+    boolean getNoImageState();
+    void  setNoImageState(boolean state);
+    //夜间模式
+
+    boolean getNightModeState();
+    void  setNightModeState(boolean state);
 }

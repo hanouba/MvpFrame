@@ -43,6 +43,7 @@ public class MainPresenter extends RxPresenter<MainContract.View> implements Mai
                 .subscribeWith(new CommonSubscriber<Boolean>(mView, "切换模式失败ヽ(≧Д≦)ノ") {
                     @Override
                     public void onNext(Boolean aBoolean) {
+                        //通过基类的方法 全局设置夜间模式状态
                         mView.useNightMode(aBoolean);
                     }
 
@@ -64,5 +65,15 @@ public class MainPresenter extends RxPresenter<MainContract.View> implements Mai
     @Override
     public void setCurrentItem(int index) {
         mDataManager.setCurrentItem(index);
+    }
+
+    @Override
+    public boolean getNightModeState() {
+        return mDataManager.getNightModeState();
+    }
+
+    @Override
+    public void setNightModeState(boolean state) {
+        mDataManager.setNightModeState(state);
     }
 }

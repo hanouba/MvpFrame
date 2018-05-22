@@ -45,8 +45,8 @@ public abstract class RootFragment<T extends BasePresenter> extends BaseFragment
         mParent = (ViewGroup) viewMain.getParent();
         View.inflate(mContext, R.layout.view_progress, mParent);
         viewLoading = mParent.findViewById(R.id.view_loading);
-//        ivLoading = (ProgressImageView) viewLoading.findViewById(R.id.iv_progress);
-//        viewLoading.setVisibility(View.GONE);
+        ivLoading = (ProgressImageView) viewLoading.findViewById(R.id.iv_progress);
+        viewLoading.setVisibility(View.GONE);
         viewMain.setVisibility(View.VISIBLE);
     }
 

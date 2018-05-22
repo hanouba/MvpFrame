@@ -11,17 +11,16 @@ import com.tbruyelle.rxpermissions2.RxPermissions;
 public interface MainContract {
 
     interface View extends BaseView{
-
         void showUpdateDialog(String versionContent);
-
         void startDownloadService();
     }
 
     interface  Presenter extends BasePresenter<View> {
-
         int getCurrentItem();
         void setCurrentItem(int index);
 
-
+        //夜间模式
+        boolean getNightModeState();
+        void setNightModeState(boolean state);
     }
 }

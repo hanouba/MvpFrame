@@ -13,10 +13,19 @@ public interface SettingContract {
 
 //        void showUpdateDialog(VersionBean bean);
 
+
     }
 
     interface  Presenter extends BasePresenter<SettingContract.View> {
 
+        boolean  getAutoCacheState();
+        void setAutoCacheState(boolean state);
 
+        //无图模式
+        boolean getNoImageState();
+        void setNoImageState(boolean state);
+        //夜间模式
+       boolean getNightModeState();
+       void setNightModeState(boolean state);
     }
 }
